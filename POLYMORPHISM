@@ -1,0 +1,60 @@
+abstract class Shape
+{
+  double dim1, dim2;
+
+  Shape(double d1, double d2)
+   {
+     dim1=d1;
+     dim2=d2;
+   }
+
+  abstract void compute_area();
+}
+
+class Rectangle extends Shape
+{
+  Rectangle(double width, double length)
+   {
+     super(width, length);
+   }
+
+   void compute_area()
+    {
+      System.out.println("Area of rectangle=" + dim1*dim2);
+    }
+}
+
+class Triangle extends Shape
+{
+  Triangle(double base, double height)
+   {
+     super(base, height);
+   }
+
+   void compute_area()
+    {
+      System.out.println("Area of triangle=" + 0.5*dim1*dim2);
+    }
+}
+
+class MyClass
+{
+  void myArea(Shape s)
+   {
+     s.compute_area();
+   }
+}
+
+public class Demo4
+{
+    public static void main(String[] args) 
+    {
+      Rectangle rect=new Rectangle(10, 20);
+      Triangle t=new Triangle(10, 20);
+
+      MyClass m=new MyClass();
+      m.myArea(rect);
+      m.myArea(t);
+    }
+}
+
